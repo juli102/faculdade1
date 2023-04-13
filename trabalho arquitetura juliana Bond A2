@@ -1,0 +1,182 @@
+.data
+msg1: .asciiz "digite um o preco:"
+msg2: .asciiz "digite o dinheiro recebido./n"
+msg3: .asciiz "troco./n"
+.text
+   .globl main 
+   main:
+   li $v0,4
+   la $a0, msg1
+   syscall
+   li $v0, 5
+	syscall
+    move $t0, $v0	# Armazena dividendo em $t0
+	li $v0, 4
+	la $a0, msg2
+	syscall	# Mostra mensagem solicitando divisor
+	li $v0, 5
+	syscall	# Le o divisor
+	move $t1, $v0
+	
+# DEFINIR QUANTAS NOTAS DE 2 E MOSTRAR 
+       li $t2, 2 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       #DEFINIR QUANTAS NOTAS DE 5 E MOSTRAR 
+       li $t2, 5 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       #DEFINIR QUANTAS NOTAS DE 10 E MOSTRAR  
+       li $t2, 10 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       
+       #DEFINIR QUANTAS NOTAS DE 20 E MOSTRAR 
+       li $t2, 20 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       #DEFINIR QUANTAS MOEDAS DE 1 E MOSTRAR 
+       li $t2, 20 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       
+       
+       #DEFINIR QUANTAS MOEDAS DE 10 E MOSTRAR  
+       li $t2, 10 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       #DEFINIR QUANTAS MOEDAS DE 25 E MOSTRAR  
+       li $t2, 25 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+      
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, notas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
+       
+       #DEFINIR QUANTAS MOEDAS DE 50 E MOSTRAR 
+       li $t2, 50 		#Aloca o 20 no $t2
+       div $t5,$t2		#Divide $t5, inteiro do troco por 20
+       mfhi $t5		 	#Resto em $t5, continua com o resto do troco
+       mflo $s0			#Quociente da divisao, aloca o numero de notas de 20 que irao para o troco
+       
+       
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$s0		#Coloca o numero no registrador de argumento para printar o resto, o decimal do troco
+       syscall
+       
+       li $v0, 4 		#Avisa ao sistema que vai printar o enter
+       la $a0, moedas		#Aloca mensagem inicial no $a0 para printar 
+       syscall 
+       
+       li $v0,1 		#Prepara para printar um int
+       move $a0,$t2		#Coloca o numero no registrador de argumento para printar o numero da nota
+       syscall
